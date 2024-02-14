@@ -1,0 +1,17 @@
+.search-bar {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  & input {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    &:focus,
+    &:active {
+      outline: 0;
+      border-bottom: 1px solid $pure-white;
+    }
+  }
+}

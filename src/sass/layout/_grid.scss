@@ -1,0 +1,11 @@
+#main-content {
+  display: grid;
+  grid-template-columns: [full-width-start] 5% [content-start] 90% [content-end] 5% [full-width-end];
+  row-gap: 3rem;
+  & > * {
+    grid-column: content;
+  }
+  & > .full-width {
+    grid-column: full-width;
+  }
+}

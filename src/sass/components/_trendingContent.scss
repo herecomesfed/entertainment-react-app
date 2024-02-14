@@ -1,0 +1,15 @@
+#main-content .trending {
+  grid-column: content-start / full-width-end;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__content {
+    position: relative;
+  }
+  &__text {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
+}

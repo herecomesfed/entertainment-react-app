@@ -1,63 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// Import Stylesheet
 import "./App.css";
+import "./sass/main.scss";
 
-import logoIcon from "./assets/logo.svg";
-import homeIcon from "./assets/icon-nav-home.svg";
-import moviesIcon from "./assets/icon-nav-movies.svg";
-import seriesIcon from "./assets/icon-nav-tv-series.svg";
-import bookmarksIconEmpty from "./assets/icon-bookmark-empty.svg";
-import bookmarksIconFull from "./assets/icon-bookmark-full.svg";
-import avatarIcon from "./assets/image-avatar.png";
+// Import Components
+import Header from "./components/Header.jsx";
+import SearchBar from "./components/SearchBar.jsx";
+import TrendingContent from "./components/TrendingContent.jsx";
 
-const icons = [
-  {
-    name: "logo",
-    src: logoIcon,
-  },
-  {
-    name: "home",
-    src: homeIcon,
-  },
-  {
-    name: "movies",
-    src: moviesIcon,
-  },
-  {
-    name: "series",
-    src: seriesIcon,
-  },
-  {
-    name: "bookmarks",
-    src: {
-      empty: bookmarksIconEmpty,
-      full: bookmarksIconFull,
-    },
-  },
-  {
-    name: "avatar",
-    src: avatarIcon,
-  },
-];
+// Import Data
+import data from "../data.json";
 
 function App() {
   return (
     <>
       <Header />
+      <main id="main-content">
+        <SearchBar />
+        <TrendingContent data={data} />
+      </main>
     </>
   );
 }
-
-const Header = () => {
-  return icons.map((i) => {
-    console.log(i);
-    return (
-      <div key={i.name}>
-        <img src={i.src} alt="" />
-      </div>
-    );
-  });
-};
 
 export default App;
