@@ -1,17 +1,20 @@
-#main-content .trending {
-  grid-column: content-start / full-width-end;
+.recommended {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 
-  &__content {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  &__item {
     position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
   }
-  &__text {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-  }
+
   &__bookmark {
     position: absolute;
     top: 1rem;

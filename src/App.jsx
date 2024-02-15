@@ -6,6 +6,7 @@ import "./sass/main.scss";
 import Header from "./components/Header.jsx";
 import SearchBar from "./components/SearchBar.jsx";
 import TrendingContent from "./components/TrendingContent.jsx";
+import Recommended from "./components/Recommended.jsx";
 
 // Import Data
 import data from "../data.json";
@@ -17,6 +18,7 @@ function App() {
       <main id="main-content">
         <SearchBar />
         <TrendingContent data={data} />
+        <Recommended data={data} />
       </main>
     </>
   );

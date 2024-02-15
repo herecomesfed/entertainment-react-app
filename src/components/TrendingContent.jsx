@@ -3,6 +3,7 @@ import { register } from "swiper/element/bundle";
 
 import image from "../assets/thumbnails/112/regular/large.jpg";
 import movieIcon from "../assets/icon-nav-movies.svg";
+import iconBookmark from "../assets/icon-bookmark-empty.svg";
 console.log(image);
 
 const TrendingContent = ({ data }) => {
@@ -71,6 +72,9 @@ const TrendingContent = ({ data }) => {
                       <div className="trending__title heading-sm">
                         {d.title}
                       </div>
+                    </div>
+                    <div className="trending__bookmark">
+                      <img src={iconBookmark} alt="Add to Bookmark" />
                     </div>
                   </div>
                 </swiper-slide>
