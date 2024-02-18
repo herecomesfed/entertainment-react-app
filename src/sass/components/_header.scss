@@ -13,8 +13,17 @@ header {
   & .menu ul {
     display: flex;
     justify-content: center;
+    align-items: baseline;
     gap: 1.5rem;
     list-style: none;
+
+    & a {
+      display: block;
+
+      &.active {
+        filter: brightness(0) invert(1);
+      }
+    }
 
     & img {
       width: 2rem;

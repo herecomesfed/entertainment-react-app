@@ -1,10 +1,10 @@
 import iconBookmark from "../assets/icon-bookmark-empty.svg";
 
-const Recommended = ({ data }) => {
+const Recommended = ({ data, heading }) => {
   return (
     <>
       <div className="recommended">
-        <h2 className="heading-md">Recommended</h2>
+        <h2 className="heading-md">{heading}</h2>
         <div className="recommended__grid">
           {data.map((d) => {
             return (

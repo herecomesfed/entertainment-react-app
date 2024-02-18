@@ -1,13 +1,37 @@
 import search from "../assets/icon-search.svg";
 
-const SearchBar = () => {
+const SearchBar = ({
+  data,
+  placeholder,
+  setResData,
+  setIsSearchEmpty,
+  setSearchvalue,
+}) => {
+  const handleSearchData = (e) => {
+    if (e.target.value !== "") {
+      setIsSearchEmpty(false);
+      setSearchvalue(e.target.value);
+      setResData(
+        data.filter((d) =>
+          d.title.toLowerCase().includes(e.target.value.toLowerCase())
+        )
+      );
+    }
+    if (e.target.value === "") {
+      setIsSearchEmpty(true);
+      setResData(data);
+      setSearchvalue("");
+    }
+  };
+
   return (
     <div className="search-bar">
       <img className="search-bar__icon" src={search} alt="Search" />
       <input
         className="heading-md"
         type="text"
-        placeholder="Search for movies or TV series"
+        placeholder={placeholder}
+        onChange={handleSearchData}
       />
     </div>
   );

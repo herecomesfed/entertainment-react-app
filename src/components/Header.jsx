@@ -4,8 +4,7 @@ import logoIcon from "../assets/logo.svg";
 import homeIcon from "../assets/icon-nav-home.svg";
 import moviesIcon from "../assets/icon-nav-movies.svg";
 import seriesIcon from "../assets/icon-nav-tv-series.svg";
-// import bookmarksIconEmpty from "./assets/icon-bookmark-empty.svg";
-import bookmarksIconFull from "../assets/icon-bookmark-full.svg";
+import bookmarkIcon from "../assets/icon-nav-bookmark.svg";
 import avatarIcon from "../assets/image-avatar.png";
 
 const links = [
@@ -24,6 +23,7 @@ const links = [
     src: seriesIcon,
     path: "/series",
   },
+  { name: "bookmarks", src: bookmarkIcon, path: "/bookmark" },
 ];
 
 const Header = () => {
@@ -43,11 +43,6 @@ const Header = () => {
               </li>
             );
           })}
-          <li>
-            <NavLink to="/">
-              <img src={bookmarksIconFull} alt="Bookmarks" />
-            </NavLink>
-          </li>
         </ul>
       </nav>
       <div className="avatar">
