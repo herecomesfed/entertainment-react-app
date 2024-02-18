@@ -2,11 +2,12 @@
 import "./App.css";
 import "./sass/main.scss";
 
+// Import packages
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 // Import Components
 import Header from "./components/Header.jsx";
-import SearchBar from "./components/SearchBar.jsx";
-import TrendingContent from "./components/TrendingContent.jsx";
-import Recommended from "./components/Recommended.jsx";
+import Home from "./pages/Home.jsx";
 
 // Import Data
 import data from "../data.json";
@@ -14,12 +15,14 @@ import data from "../data.json";
 function App() {
   return (
     <>
-      <Header />
-      <main id="main-content">
-        <SearchBar />
-        <TrendingContent data={data} />
-        <Recommended data={data} />
-      </main>
+      <BrowserRouter>
+        <Header />
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<Home data={data} />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
     </>
   );
 }

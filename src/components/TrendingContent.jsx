@@ -7,23 +7,6 @@ import iconBookmark from "../assets/icon-bookmark-empty.svg";
 console.log(image);
 
 const TrendingContent = ({ data }) => {
-  console.log(data);
-  console.log(
-    "Tutti i map",
-    data.map((d) => {
-      return d.title;
-    })
-  );
-  console.log(
-    "Map Filtrati",
-    data
-      .filter((d) => {
-        return d.isTrending === true;
-      })
-      .map((d) => {
-        return d.title;
-      })
-  );
   const swiperRef = useRef(null);
 
   useEffect(() => {

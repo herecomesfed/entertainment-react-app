@@ -10,10 +10,11 @@ header {
   & .logo img {
     width: 3rem;
   }
-  & .menu {
+  & .menu ul {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
+    list-style: none;
 
     & img {
       width: 2rem;
