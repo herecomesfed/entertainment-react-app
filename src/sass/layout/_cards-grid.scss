@@ -1,0 +1,15 @@
+.cards {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @include respond(tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

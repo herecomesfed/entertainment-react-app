@@ -4,6 +4,8 @@ import { register } from "swiper/element/bundle";
 import image from "../assets/thumbnails/112/regular/large.jpg";
 import movieIcon from "../assets/icon-nav-movies.svg";
 import iconBookmark from "../assets/icon-bookmark-empty.svg";
+
+import Card from "./Card";
 console.log(image);
 
 const TrendingContent = ({ data }) => {
@@ -15,11 +17,11 @@ const TrendingContent = ({ data }) => {
 
     // Object with parameters
     const params = {
-      slidesPerView: 1.5,
+      slidesPerView: 2.5,
       spaceBetween: 20,
       breakpoints: {
         768: {
-          slidesPerView: 4,
+          slidesPerView: 1.5,
         },
       },
     };
@@ -33,7 +35,7 @@ const TrendingContent = ({ data }) => {
   return (
     <>
       <div className="trending">
-        <h2 className="heading-md">Trending</h2>
+        <h2 className="heading-md m-block-2">Trending</h2>
         <swiper-container init="false" ref={swiperRef}>
           {data
             .filter((d) => {
@@ -42,30 +44,10 @@ const TrendingContent = ({ data }) => {
             .map((d) => {
               return (
                 <swiper-slide key={d.title}>
-                  <div className="trending__content">
-                    <img
-                      src={d.thumbnail.trending.large.replace("./", "./src/")}
-                      alt=""
-                    />
-                    <div className="trending__text">
-                      <div className="trending__info paragraph-sm">
-                        {d.year} • <img src={`${d.category}Icon`} alt="" />
-                        {d.category} • {d.rating}
-                      </div>
-                      <div className="trending__title heading-sm">
-                        {d.title}
-                      </div>
-                    </div>
-                    <div className="trending__bookmark">
-                      <img src={iconBookmark} alt="Add to Bookmark" />
-                    </div>
-                  </div>
+                  <Card d={d} iconBookmark={iconBookmark} absolute={true} />
                 </swiper-slide>
               );
             })}
-          {/* <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide> */}
         </swiper-container>
       </div>
     </>
