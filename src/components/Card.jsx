@@ -1,4 +1,5 @@
-const Card = ({ d, iconBookmark, absolute }) => {
+import iconBookmark from "../assets/icon-bookmark-empty.svg";
+const Card = ({ d, absolute }) => {
   return (
     <div className="card">
       <img
