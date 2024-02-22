@@ -3,9 +3,9 @@ import Cards from "../components/Cards.jsx";
 
 import { useState } from "react";
 
-const Movies = ({ data }) => {
+const Bookmarked = ({ data }) => {
   const [resData, setResData] = useState(
-    data.filter((d) => d.category === "Movie")
+    data.filter((d) => d.category === "TV Bookmarked")
   );
   const [isSearchEmpty, setIsSearchEmpty] = useState(true);
   const [searchValue, setSearchValue] = useState("");
@@ -15,7 +15,7 @@ const Movies = ({ data }) => {
         data={data}
         resData={resData}
         setResData={setResData}
-        placeholder={"Search for movies"}
+        placeholder={"Search for TV Bookmarked"}
         setIsSearchEmpty={setIsSearchEmpty}
         setSearchvalue={setSearchValue}
       />
@@ -24,11 +24,11 @@ const Movies = ({ data }) => {
         heading={
           !isSearchEmpty
             ? `Found ${resData.length} results for "${searchValue}"`
-            : "Movies"
+            : "Bookmarked Moovies"
         }
       />
     </>
   );
 };
 
-export default Movies;
+export default Bookmarked;

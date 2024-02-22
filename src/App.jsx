@@ -10,6 +10,7 @@ import { useState } from "react";
 import Header from "./components/Header.jsx";
 import Home from "./pages/Home.jsx";
 import Movies from "./pages/Movies.jsx";
+import Series from "./pages/Series.jsx";
 
 // Import Data
 import data from "../data.json";
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home data={data} />} />
             <Route path="/movies" element={<Movies data={data} />} />
+            <Route path="/series" element={<Series data={data} />} />
           </Routes>
         </main>
       </BrowserRouter>

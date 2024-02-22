@@ -1,9 +1,9 @@
 import Card from "./Card";
 
-const Recommended = ({ data, heading }) => {
+const Cards = ({ data, heading }) => {
   return (
     <>
-      <div className="recommended">
+      <div className="cards">
         <h2 className="heading-md m-block-2">{heading}</h2>
         <div className="cards__grid">
           {data.map((d) => {
@@ -15,4 +15,4 @@ const Recommended = ({ data, heading }) => {
   );
 };
 
-export default Recommended;
+export default Cards;

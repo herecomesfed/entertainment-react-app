@@ -1,6 +1,6 @@
 import SearchBar from "../components/SearchBar.jsx";
 import TrendingContent from "../components/TrendingContent.jsx";
-import Recommended from "../components/Recommended.jsx";
+import Cards from "../components/Cards.jsx";
 
 import { useState } from "react";
 
@@ -19,7 +19,7 @@ const Home = ({ data }) => {
         setSearchvalue={setSearchValue}
       />
       {isSearchEmpty && <TrendingContent data={data} />}
-      <Recommended
+      <Cards
         data={resData}
         heading={
           !isSearchEmpty
