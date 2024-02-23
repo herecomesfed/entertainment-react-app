@@ -1,24 +1,25 @@
-import SearchBar from "../components/SearchBar.jsx";
 import Cards from "../components/Cards.jsx";
 
-import { useState } from "react";
+import { useEffect } from "react";
 
-const Movies = ({ data }) => {
-  const [resData, setResData] = useState(
-    data.filter((d) => d.category === "Movie")
-  );
-  const [isSearchEmpty, setIsSearchEmpty] = useState(true);
-  const [searchValue, setSearchValue] = useState("");
+const Movies = ({
+  data,
+  isSearchEmpty,
+  resData,
+  setResData,
+  searchValue,
+  setSearchPlaceholder,
+}) => {
+  useEffect(() => {
+    setResData(
+      data.filter((d) => {
+        return d.category === "Movie";
+      })
+    );
+    setSearchPlaceholder("Search for movies");
+  }, [setResData, data, setSearchPlaceholder]);
   return (
     <>
-      <SearchBar
-        data={data}
-        resData={resData}
-        setResData={setResData}
-        placeholder={"Search for movies"}
-        setIsSearchEmpty={setIsSearchEmpty}
-        setSearchvalue={setSearchValue}
-      />
       <Cards
         data={resData}
         heading={
