@@ -2,32 +2,44 @@ import TrendingContent from "../components/TrendingContent.jsx";
 import Cards from "../components/Cards.jsx";
 
 import { useEffect } from "react";
+import Card from "../components/Card.jsx";
 
 const Home = ({
   data,
   resData,
+  setResData,
   isSearchEmpty,
   searchValue,
   setSearchPlaceholder,
+  handleBookmarkShow,
 }) => {
-  // const [resData, setResData] = useState(data);
-  // const [isSearchEmpty, setIsSearchEmpty] = useState(true);
-  // const [searchValue, setSearchValue] = useState("");
-
   useEffect(() => {
+    setResData(data);
     setSearchPlaceholder("Search for movies or TV series");
-  }, [setSearchPlaceholder]);
+  }, [setResData, data, setSearchPlaceholder]);
   return (
     <>
       {isSearchEmpty && <TrendingContent data={data} />}
       <Cards
-        data={resData}
+        resData={resData}
         heading={
           !isSearchEmpty
             ? `Found ${resData.length} results for "${searchValue}"`
             : "Recommended"
         }
-      />
+      >
+        {resData.map((d) => {
+          return (
+            <Card
+              key={d.title}
+              d={d}
+              resData={resData}
+              setResData={setResData}
+              handleBookmarkShow={handleBookmarkShow}
+            />
+          );
+        })}
+      </Cards>
     </>
   );
 };

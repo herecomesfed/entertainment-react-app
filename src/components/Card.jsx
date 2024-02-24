@@ -1,5 +1,6 @@
-import iconBookmark from "../assets/icon-bookmark-empty.svg";
-const Card = ({ d, absolute }) => {
+import iconBookmarkEmpty from "../assets/icon-bookmark-empty.svg";
+import iconBookmarkFull from "../assets/icon-bookmark-full.svg";
+const Card = ({ d, absolute, handleBookmarkShow }) => {
   return (
     <div className="card">
       <img
@@ -13,8 +14,14 @@ const Card = ({ d, absolute }) => {
         </div>
         <div className="card__title heading-sm">{d.title}</div>
       </div>
-      <div className="card__bookmark">
-        <img src={iconBookmark} alt="Add to Bookmark" />
+      <div
+        className={`card__bookmark ${d.isBookmarked ? "bookmarked" : ""}`}
+        onClick={handleBookmarkShow}
+      >
+        <img
+          src={d.isBookmarked ? iconBookmarkFull : iconBookmarkEmpty}
+          alt={d.isBookmarked ? "Remove from Bookmark" : "Add to Bookmark"}
+        />
       </div>
     </div>
   );

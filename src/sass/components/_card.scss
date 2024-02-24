@@ -17,6 +17,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &:hover {
+      background: $pure-white;
+
+      img {
+        filter: invert(1);
+      }
+    }
   }
 
   & .absolute {

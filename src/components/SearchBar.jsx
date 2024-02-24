@@ -3,11 +3,13 @@ import search from "../assets/icon-search.svg";
 const SearchBar = ({
   data,
   placeholder,
+  resData,
   setResData,
   setIsSearchEmpty,
   setSearchvalue,
 }) => {
   const handleSearchData = (e) => {
+    console.log(resData);
     if (e.target.value !== "") {
       setIsSearchEmpty(false);
       setSearchvalue(e.target.value);

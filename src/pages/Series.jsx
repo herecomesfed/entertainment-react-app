@@ -1,5 +1,5 @@
 import Cards from "../components/Cards.jsx";
-
+import Card from "../components/Card.jsx";
 import { useEffect } from "react";
 
 const Series = ({
@@ -21,13 +21,19 @@ const Series = ({
   return (
     <>
       <Cards
-        data={resData}
+        resData={resData}
         heading={
           !isSearchEmpty
             ? `Found ${resData.length} results for "${searchValue}"`
             : "TV Series"
         }
-      />
+      >
+        {resData
+          .filter((d) => d.category === "TV Series")
+          .map((d) => {
+            return <Card key={d.title} d={d} />;
+          })}
+      </Cards>
     </>
   );
 };

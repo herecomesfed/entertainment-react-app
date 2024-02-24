@@ -1,32 +1,51 @@
-import SearchBar from "../components/SearchBar.jsx";
 import Cards from "../components/Cards.jsx";
+import Card from "../components/Card.jsx";
 
-import { useState } from "react";
+import { useEffect } from "react";
 
-const Bookmarked = ({ data }) => {
-  const [resData, setResData] = useState(
-    data.filter((d) => d.category === "TV Bookmarked")
-  );
-  const [isSearchEmpty, setIsSearchEmpty] = useState(true);
-  const [searchValue, setSearchValue] = useState("");
+const Bookmarked = ({
+  data,
+  isSearchEmpty,
+  resData,
+  setResData,
+  searchValue,
+  setSearchPlaceholder,
+}) => {
   return (
     <>
-      <SearchBar
-        data={data}
-        resData={resData}
-        setResData={setResData}
-        placeholder={"Search for TV Bookmarked"}
-        setIsSearchEmpty={setIsSearchEmpty}
-        setSearchvalue={setSearchValue}
-      />
+      {useEffect(() => {
+        setResData(data);
+        setSearchPlaceholder("Search for bookmarked shows");
+      }, [setResData, data, setSearchPlaceholder])}
+      ;
       <Cards
-        data={resData}
+        resData={resData}
         heading={
           !isSearchEmpty
             ? `Found ${resData.length} results for "${searchValue}"`
-            : "Bookmarked Moovies"
+            : "Bookmarked Movies"
         }
-      />
+      >
+        {resData
+          .filter((d) => d.category === "Movie" && d.isBookmarked === true)
+          .map((d) => {
+            return <Card key={d.title} d={d} />;
+          })}
+      </Cards>
+      <Cards
+        resData={resData}
+        heading={
+          !isSearchEmpty
+            ? `Found ${resData.length} results for "${searchValue}"`
+            : "Bookmarked TV Series"
+        }
+      >
+        {resData
+          .filter((d) => d.category === "TV Series" && d.isBookmarked === true)
+          .map((d) => {
+            return <Card key={d.title} d={d} />;
+          })}
+      </Cards>
     </>
   );
 };

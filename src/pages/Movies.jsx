@@ -1,5 +1,5 @@
 import Cards from "../components/Cards.jsx";
-
+import Card from "../components/Card.jsx";
 import { useEffect } from "react";
 
 const Movies = ({
@@ -21,13 +21,19 @@ const Movies = ({
   return (
     <>
       <Cards
-        data={resData}
+        resData={resData}
         heading={
           !isSearchEmpty
             ? `Found ${resData.length} results for "${searchValue}"`
             : "Movies"
         }
-      />
+      >
+        {resData
+          .filter((d) => d.category === "Movie")
+          .map((d) => {
+            return <Card key={d.title} d={d} />;
+          })}
+      </Cards>
     </>
   );
 };

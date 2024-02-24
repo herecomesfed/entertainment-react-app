@@ -15,12 +15,25 @@ import Series from "./pages/Series.jsx";
 // Import Data
 import data from "../data.json";
 import SearchBar from "./components/SearchBar.jsx";
+import Bookmarked from "./pages/Bookmarked.jsx";
 
 function App() {
   const [resData, setResData] = useState(data);
   const [isSearchEmpty, setIsSearchEmpty] = useState(true);
   const [searchValue, setSearchValue] = useState("");
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
+
+  // const handleBookmarkShow = function (d) {
+  //   // if (d.title === d.title)
+  //   //   setResData({ ...resData, isBookmarked: !d.isBookmarked });
+  //   console.log("Ciao");
+  // };
+  const handleBookmarkShow = function () {
+    // if (d.title === d.title)
+    //   setResData({ ...resData, isBookmarked: !d.isBookmarked });
+    // console.log(d.title);
+    console.log("ciao");
+  };
 
   return (
     <>
@@ -29,6 +42,7 @@ function App() {
         <main id="main-content">
           <SearchBar
             data={data}
+            resData={resData}
             setResData={setResData}
             placeholder={searchPlaceholder}
             setIsSearchEmpty={setIsSearchEmpty}
@@ -41,9 +55,11 @@ function App() {
                 <Home
                   data={data}
                   resData={resData}
+                  setResData={setResData}
                   isSearchEmpty={isSearchEmpty}
                   searchValue={searchValue}
                   setSearchPlaceholder={setSearchPlaceholder}
+                  handleBookmarkShow={handleBookmarkShow}
                 />
               }
             />
@@ -64,6 +80,19 @@ function App() {
               path="/series"
               element={
                 <Series
+                  data={data}
+                  resData={resData}
+                  setResData={setResData}
+                  isSearchEmpty={isSearchEmpty}
+                  searchValue={searchValue}
+                  setSearchPlaceholder={setSearchPlaceholder}
+                />
+              }
+            />
+            <Route
+              path="/bookmark"
+              element={
+                <Bookmarked
                   data={data}
                   resData={resData}
                   setResData={setResData}
