@@ -10,6 +10,7 @@ const Bookmarked = ({
   setResData,
   searchValue,
   setSearchPlaceholder,
+  handleBookmarkShow,
 }) => {
   return (
     <>
@@ -17,7 +18,7 @@ const Bookmarked = ({
         setResData(data);
         setSearchPlaceholder("Search for bookmarked shows");
       }, [setResData, data, setSearchPlaceholder])}
-      ;
+
       <Cards
         resData={resData}
         heading={
@@ -29,7 +30,13 @@ const Bookmarked = ({
         {resData
           .filter((d) => d.category === "Movie" && d.isBookmarked === true)
           .map((d) => {
-            return <Card key={d.title} d={d} />;
+            return (
+              <Card
+                key={d.title}
+                d={d}
+                handleBookmarkShow={handleBookmarkShow}
+              />
+            );
           })}
       </Cards>
       <Cards
@@ -43,7 +50,13 @@ const Bookmarked = ({
         {resData
           .filter((d) => d.category === "TV Series" && d.isBookmarked === true)
           .map((d) => {
-            return <Card key={d.title} d={d} />;
+            return (
+              <Card
+                key={d.title}
+                d={d}
+                handleBookmarkShow={handleBookmarkShow}
+              />
+            );
           })}
       </Cards>
     </>

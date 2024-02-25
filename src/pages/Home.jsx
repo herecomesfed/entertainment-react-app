@@ -14,9 +14,10 @@ const Home = ({
   handleBookmarkShow,
 }) => {
   useEffect(() => {
-    setResData(data);
+    setResData(resData);
     setSearchPlaceholder("Search for movies or TV series");
   }, [setResData, data, setSearchPlaceholder]);
+
   return (
     <>
       {isSearchEmpty && <TrendingContent data={data} />}
@@ -36,6 +37,7 @@ const Home = ({
               resData={resData}
               setResData={setResData}
               handleBookmarkShow={handleBookmarkShow}
+              // handleBookmarkShow={handleBookmarkShow}
             />
           );
         })}

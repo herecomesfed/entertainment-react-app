@@ -23,16 +23,32 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
 
-  // const handleBookmarkShow = function (d) {
-  //   // if (d.title === d.title)
-  //   //   setResData({ ...resData, isBookmarked: !d.isBookmarked });
-  //   console.log("Ciao");
-  // };
-  const handleBookmarkShow = function () {
+  const handleBookmarkShow = function (d) {
     // if (d.title === d.title)
     //   setResData({ ...resData, isBookmarked: !d.isBookmarked });
-    // console.log(d.title);
-    console.log("ciao");
+    // if (d.title === d.title) {
+    // setResData({ ...resData, isBookmarked: true });
+    // setResData([...resData]);
+
+    // Quasi Funzionante
+    // setResData(
+    //   resData.map((element) => {
+    //     return element.title === d.title
+    //       ? (d.isBookmarked = !d.isBookmarked)
+    //       : { ...element };
+    //   })
+    // );
+    // setResData(resData.find((element) => element.id === d.title));
+
+    setResData(
+      resData.map((element) => {
+        return element.title === d.title
+          ? { ...element, isBookmarked: !d.isBookmarked }
+          : element;
+      })
+    );
+
+    // console.log("ResData", resData);
   };
 
   return (
@@ -73,6 +89,7 @@ function App() {
                   isSearchEmpty={isSearchEmpty}
                   searchValue={searchValue}
                   setSearchPlaceholder={setSearchPlaceholder}
+                  handleBookmarkShow={handleBookmarkShow}
                 />
               }
             />
@@ -86,6 +103,7 @@ function App() {
                   isSearchEmpty={isSearchEmpty}
                   searchValue={searchValue}
                   setSearchPlaceholder={setSearchPlaceholder}
+                  handleBookmarkShow={handleBookmarkShow}
                 />
               }
             />
@@ -99,6 +117,7 @@ function App() {
                   isSearchEmpty={isSearchEmpty}
                   searchValue={searchValue}
                   setSearchPlaceholder={setSearchPlaceholder}
+                  handleBookmarkShow={handleBookmarkShow}
                 />
               }
             />

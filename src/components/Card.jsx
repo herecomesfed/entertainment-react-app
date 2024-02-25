@@ -16,7 +16,7 @@ const Card = ({ d, absolute, handleBookmarkShow }) => {
       </div>
       <div
         className={`card__bookmark ${d.isBookmarked ? "bookmarked" : ""}`}
-        onClick={handleBookmarkShow}
+        onClick={() => handleBookmarkShow(d)}
       >
         <img
           src={d.isBookmarked ? iconBookmarkFull : iconBookmarkEmpty}
