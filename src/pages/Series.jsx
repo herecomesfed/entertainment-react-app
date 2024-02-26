@@ -3,21 +3,15 @@ import Card from "../components/Card.jsx";
 import { useEffect } from "react";
 
 const Series = ({
-  data,
   isSearchEmpty,
   resData,
-  setResData,
   searchValue,
   setSearchPlaceholder,
+  handleBookmarkShow,
 }) => {
   useEffect(() => {
-    setResData(
-      data.filter((d) => {
-        return d.category === "TV Series";
-      })
-    );
     setSearchPlaceholder("Search for TV series");
-  }, [setResData, data, setSearchPlaceholder]);
+  }, [setSearchPlaceholder]);
   return (
     <>
       <Cards
@@ -31,7 +25,13 @@ const Series = ({
         {resData
           .filter((d) => d.category === "TV Series")
           .map((d) => {
-            return <Card key={d.title} d={d} />;
+            return (
+              <Card
+                key={d.title}
+                d={d}
+                handleBookmarkShow={handleBookmarkShow}
+              />
+            );
           })}
       </Cards>
     </>

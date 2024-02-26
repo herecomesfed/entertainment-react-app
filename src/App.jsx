@@ -4,7 +4,7 @@ import "./sass/main.scss";
 
 // Import packages
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Import Components
 import Header from "./components/Header.jsx";
@@ -13,43 +13,35 @@ import Movies from "./pages/Movies.jsx";
 import Series from "./pages/Series.jsx";
 
 // Import Data
-import data from "../data.json";
+import dataJSON from "../data.json";
 import SearchBar from "./components/SearchBar.jsx";
 import Bookmarked from "./pages/Bookmarked.jsx";
 
 function App() {
+  const [data, setData] = useState(dataJSON);
   const [resData, setResData] = useState(data);
   const [isSearchEmpty, setIsSearchEmpty] = useState(true);
   const [searchValue, setSearchValue] = useState("");
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
 
   const handleBookmarkShow = function (d) {
-    // if (d.title === d.title)
-    //   setResData({ ...resData, isBookmarked: !d.isBookmarked });
-    // if (d.title === d.title) {
-    // setResData({ ...resData, isBookmarked: true });
-    // setResData([...resData]);
-
-    // Quasi Funzionante
-    // setResData(
-    //   resData.map((element) => {
-    //     return element.title === d.title
-    //       ? (d.isBookmarked = !d.isBookmarked)
-    //       : { ...element };
-    //   })
-    // );
-    // setResData(resData.find((element) => element.id === d.title));
-
-    setResData(
-      resData.map((element) => {
+    setData(
+      data.map((element) => {
         return element.title === d.title
           ? { ...element, isBookmarked: !d.isBookmarked }
           : element;
       })
     );
-
-    // console.log("ResData", resData);
+    if (!isSearchEmpty) {
+      setSearchValue("");
+      isSearchEmpty(true);
+    }
   };
+
+  useEffect(() => {
+    // searchValue !== "" && setSearchValue("");
+    setResData(data);
+  }, [data]);
 
   return (
     <>

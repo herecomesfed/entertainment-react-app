@@ -6,6 +6,7 @@ const SearchBar = ({
   resData,
   setResData,
   setIsSearchEmpty,
+  searchValue,
   setSearchvalue,
 }) => {
   const handleSearchData = (e) => {
@@ -34,6 +35,7 @@ const SearchBar = ({
         type="text"
         placeholder={placeholder}
         onChange={handleSearchData}
+        value={searchValue}
       />
     </div>
   );

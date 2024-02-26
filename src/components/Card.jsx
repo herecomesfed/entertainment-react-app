@@ -1,5 +1,8 @@
 import iconBookmarkEmpty from "../assets/icon-bookmark-empty.svg";
 import iconBookmarkFull from "../assets/icon-bookmark-full.svg";
+
+import movieIcon from "../assets/icon-category-movie.svg";
+import tvIcon from "../assets/icon-category-tv.svg";
 const Card = ({ d, absolute, handleBookmarkShow }) => {
   return (
     <div className="card">
@@ -8,10 +11,15 @@ const Card = ({ d, absolute, handleBookmarkShow }) => {
         alt={d.title}
       />
       <div className={`card__text ${absolute ? "absolute" : ""}`}>
-        <div className="card__info paragraph-sm">
-          {d.year} • <img src={`${d.category}Icon`} alt="" />
+        <p className="card__info paragraph-sm">
+          {d.year} •{" "}
+          <img
+            src={d.category === "Movie" ? movieIcon : tvIcon}
+            alt={d.category}
+            style={{ marginRight: 0.5 + "rem" }}
+          />
           {d.category} • {d.rating}
-        </div>
+        </p>
         <div className="card__title heading-sm">{d.title}</div>
       </div>
       <div

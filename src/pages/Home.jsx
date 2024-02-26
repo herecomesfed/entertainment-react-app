@@ -14,13 +14,15 @@ const Home = ({
   handleBookmarkShow,
 }) => {
   useEffect(() => {
-    setResData(resData);
+    // setResData(resData);
     setSearchPlaceholder("Search for movies or TV series");
   }, [setResData, data, setSearchPlaceholder]);
 
   return (
     <>
-      {isSearchEmpty && <TrendingContent data={data} />}
+      {isSearchEmpty && (
+        <TrendingContent data={data} handleBookmarkShow={handleBookmarkShow} />
+      )}
       <Cards
         resData={resData}
         heading={

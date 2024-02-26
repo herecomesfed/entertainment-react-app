@@ -1,14 +1,9 @@
 import { useEffect, useRef } from "react";
 import { register } from "swiper/element/bundle";
 
-import image from "../assets/thumbnails/112/regular/large.jpg";
-import movieIcon from "../assets/icon-nav-movies.svg";
-import iconBookmark from "../assets/icon-bookmark-empty.svg";
-
 import Card from "./Card";
-console.log(image);
 
-const TrendingContent = ({ data }) => {
+const TrendingContent = ({ data, handleBookmarkShow }) => {
   const swiperRef = useRef(null);
 
   useEffect(() => {
@@ -44,7 +39,11 @@ const TrendingContent = ({ data }) => {
             .map((d) => {
               return (
                 <swiper-slide key={d.title}>
-                  <Card d={d} iconBookmark={iconBookmark} absolute={true} />
+                  <Card
+                    d={d}
+                    absolute={true}
+                    handleBookmarkShow={handleBookmarkShow}
+                  />
                 </swiper-slide>
               );
             })}
