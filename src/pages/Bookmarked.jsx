@@ -12,6 +12,12 @@ const Bookmarked = ({
   setSearchPlaceholder,
   handleBookmarkShow,
 }) => {
+  const bookmarkCategoryFilter = (category) => {
+    return `Found ${
+      resData.filter((d) => d.category === category && d.isBookmarked === true)
+        .length
+    } results for "${searchValue}"`;
+  };
   return (
     <>
       {useEffect(() => {
@@ -22,9 +28,7 @@ const Bookmarked = ({
       <Cards
         resData={resData}
         heading={
-          !isSearchEmpty
-            ? `Found ${resData.length} results for "${searchValue}"`
-            : "Bookmarked Movies"
+          !isSearchEmpty ? bookmarkCategoryFilter("Movie") : "Bookmarked Movies"
         }
       >
         {resData
@@ -43,7 +47,7 @@ const Bookmarked = ({
         resData={resData}
         heading={
           !isSearchEmpty
-            ? `Found ${resData.length} results for "${searchValue}"`
+            ? bookmarkCategoryFilter("TV Series")
             : "Bookmarked TV Series"
         }
       >

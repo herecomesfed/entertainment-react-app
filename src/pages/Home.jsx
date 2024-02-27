@@ -14,9 +14,8 @@ const Home = ({
   handleBookmarkShow,
 }) => {
   useEffect(() => {
-    // setResData(resData);
     setSearchPlaceholder("Search for movies or TV series");
-  }, [setResData, data, setSearchPlaceholder]);
+  }, [setSearchPlaceholder]);
 
   return (
     <>
