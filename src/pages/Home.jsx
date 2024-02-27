@@ -37,6 +37,7 @@ const Home = ({
               d={d}
               resData={resData}
               setResData={setResData}
+              searchValue={searchValue}
               handleBookmarkShow={handleBookmarkShow}
               // handleBookmarkShow={handleBookmarkShow}
             />

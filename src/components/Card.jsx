@@ -1,6 +1,8 @@
 import iconBookmarkEmpty from "../assets/icon-bookmark-empty.svg";
 import iconBookmarkFull from "../assets/icon-bookmark-full.svg";
 
+import iconPlay from "../assets/icon-play.svg";
+
 import movieIcon from "../assets/icon-category-movie.svg";
 import tvIcon from "../assets/icon-category-tv.svg";
 const Card = ({ d, absolute, handleBookmarkShow }) => {
@@ -31,6 +33,12 @@ const Card = ({ d, absolute, handleBookmarkShow }) => {
           alt={d.isBookmarked ? "Remove from Bookmark" : "Add to Bookmark"}
         />
       </div>
+      {/* <div className="card__play-container">
+        <div className="card__play-inner">
+          <img src={iconPlay} alt="Play" />
+          <h4 className="heading-s">Play</h4>
+        </div>
+      </div> */}
     </div>
   );
 };
