@@ -34,7 +34,6 @@ function App() {
     );
     setSearchValue("");
     if (!isSearchEmpty) {
-      // setSearchValue("");
       setIsSearchEmpty(true);
     }
   };
