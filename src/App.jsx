@@ -32,15 +32,17 @@ function App() {
           : element;
       })
     );
-    setSearchValue("");
-    if (!isSearchEmpty) {
-      setIsSearchEmpty(true);
-    }
   };
 
   useEffect(() => {
-    setResData(data);
-  }, [data]);
+    !isSearchEmpty
+      ? setResData(
+          data.filter((d) =>
+            d.title.toLowerCase().includes(searchValue.toLowerCase())
+          )
+        )
+      : setResData(data);
+  }, [isSearchEmpty, searchValue, data]);
 
   return (
     <>
