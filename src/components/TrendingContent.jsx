@@ -12,14 +12,23 @@ const TrendingContent = ({ data, handleBookmarkShow }) => {
 
     // Object with parameters
     const params = {
-      slidesPerView: 3.5,
+      // slidesPerView: 2.5,
       spaceBetween: 20,
       breakpoints: {
-        768: {
+        0: {
           slidesPerView: 1.5,
+        },
+        320: {
+          slidesPerView: 1.5,
+        },
+        768: {
+          slidesPerView: 2.5,
         },
         1024: {
           slidesPerView: 2.5,
+        },
+        1366: {
+          slidesPerView: 3.5,
         },
       },
     };
