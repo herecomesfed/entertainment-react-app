@@ -32,14 +32,14 @@ function App() {
           : element;
       })
     );
+    setSearchValue("");
     if (!isSearchEmpty) {
-      setSearchValue("");
-      isSearchEmpty(true);
+      // setSearchValue("");
+      setIsSearchEmpty(true);
     }
   };
 
   useEffect(() => {
-    // searchValue !== "" && setSearchValue("");
     setResData(data);
   }, [data]);
 

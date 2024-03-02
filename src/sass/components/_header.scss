@@ -4,8 +4,24 @@ header {
   align-items: center;
   background: $semi-dark-blue;
   padding: 1.5rem;
+
+  @include respond(desktop) {
+    position: fixed;
+    width: 5%;
+    height: 95%;
+    top: 50%;
+    left: 2%;
+    transform: translate(-2%, -50%);
+    flex-direction: column;
+    border-radius: 1rem;
+  }
+
   & > * {
     width: 33.3333%;
+
+    @include respond(desktop) {
+      width: 100%;
+    }
   }
   & .logo img {
     width: 3rem;
@@ -16,6 +32,10 @@ header {
     align-items: baseline;
     gap: 1.5rem;
     list-style: none;
+
+    @include respond(desktop) {
+      flex-direction: column;
+    }
 
     & a {
       display: block;

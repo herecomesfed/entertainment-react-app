@@ -8,10 +8,18 @@ import tvIcon from "../assets/icon-category-tv.svg";
 const Card = ({ d, absolute, handleBookmarkShow }) => {
   return (
     <div className="card">
-      <img
-        src={d.thumbnail.regular.large.replace("./", "./src/")}
-        alt={d.title}
-      />
+      <div className="card__img">
+        <img
+          src={d.thumbnail.regular.large.replace("./", "./src/")}
+          alt={d.title}
+        />
+        <div className="card__play-container">
+          <div className="card__play-inner">
+            <img src={iconPlay} alt="Play" />
+            <h4 className="heading-s">Play</h4>
+          </div>
+        </div>
+      </div>
       <div className={`card__text ${absolute ? "absolute" : ""}`}>
         <p className="card__info paragraph-sm">
           {d.year} •{" "}
@@ -33,12 +41,7 @@ const Card = ({ d, absolute, handleBookmarkShow }) => {
           alt={d.isBookmarked ? "Remove from Bookmark" : "Add to Bookmark"}
         />
       </div>
-      {/* <div className="card__play-container">
-        <div className="card__play-inner">
-          <img src={iconPlay} alt="Play" />
-          <h4 className="heading-s">Play</h4>
-        </div>
-      </div> */}
+      {/*  */}
     </div>
   );
 };

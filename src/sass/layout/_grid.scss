@@ -8,4 +8,9 @@
   & > .full-width {
     grid-column: full-width;
   }
+
+  @include respond(desktop) {
+    width: 95%;
+    margin-left: 5%;
+  }
 }

@@ -21,7 +21,6 @@ const Bookmarked = ({
   return (
     <>
       {useEffect(() => {
-        // setResData(data);
         setSearchPlaceholder("Search for bookmarked shows");
       }, [setResData, data, setSearchPlaceholder])}
 
