@@ -27,7 +27,7 @@ const Home = ({
         heading={
           !isSearchEmpty
             ? `Found ${resData.length} results for "${searchValue}"`
-            : "Recommended"
+            : "Recommended for you"
         }
       >
         {resData.map((d) => {
